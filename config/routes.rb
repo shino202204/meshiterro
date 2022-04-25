@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  root to: "homes#top"
+    #deviseのモデルを作成したことで、ルーティングが自動的に追加されている。
+    # devise_for :usersは、deviseを使用する際にURLとしてusersを含むことを示している。
+    devise_for :users
+    root to: "homes#top"
 end
