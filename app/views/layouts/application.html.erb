@@ -10,7 +10,28 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+    <!--ログアウト機能を実装-->
+    <!--deviseによってすでに機能自体は作成されているため、実装しなければならないのは-->
+    <!--ログアウト用のリンクのみ。-->
+    <!--ログアウトはHTTPメソッドがDELETEであることに注意。
+    link_toのHTTPメソッドは特に設定しなければGETになる。-->
   <body>
+    <header>
+      <!--「if user_signed_in?」はdevise側で用意しているヘルパーメソッド-->
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to "新規登録", new_user_registration_path %>
+        </li>
+        <li>
+          <%= link_to "ログイン", new_user_session_path %>
+        </li>
+      <% end %>
+    </header>
     <%= yield %>
+
   </body>
 </html>
