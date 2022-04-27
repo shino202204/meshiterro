@@ -7,6 +7,18 @@ class ApplicationController < ActionController::Base
   # configure_permitted_parametersメソッドが実行される。
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  # after_sign_in_path_forはDeviseが用意しているメソッドで、
+  # サインイン後にどこに遷移するかを設定しているメソッド。
+  # 初期設定ではroot_pathになっているが、下記のような記述をすることで上書きすることができる。
+  def after_sign_in_path_for(resource)
+    about_path
+  end
+
+  # 上のメソッドのサインアウト版
+  def after_sign_out_path_for(resource)
+    about_path
+  end
+
   # privateは記述をしたコントローラ内でしか参照できない。
   # 一方、protectedは呼び出された他のコントローラからも参照することができる。
   protected
