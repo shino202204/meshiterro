@@ -15,6 +15,8 @@ class PostImagesController < ApplicationController
   end
 
   def index
+    # post_imagesデーブル内に存在する全てのレコードのインスタンスを代入
+    @post_images = PostImage.all
   end
 
   def show

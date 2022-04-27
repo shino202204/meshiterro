@@ -11,7 +11,10 @@ class ApplicationController < ActionController::Base
   # サインイン後にどこに遷移するかを設定しているメソッド。
   # 初期設定ではroot_pathになっているが、下記のような記述をすることで上書きすることができる。
   def after_sign_in_path_for(resource)
-    about_path
+    # ログイン後の遷移先を一覧画面へ変更
+    # about_path
+    post_images_path
+
   end
 
   # 上のメソッドのサインアウト版
