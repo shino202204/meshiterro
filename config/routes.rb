@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     # onlyオプション：生成するルーティングを限定することができる
     # この場合、onlyの後に配列で記述されている"new","index","show"のアクション以外は、
     # ルーティングが行われない。
-    resources :post_images, only: [:new, :create, :index, :show]
+    resources :post_images, only: [:new, :create, :index, :show, :destroy]
 
     # deviseのモデルを作成したことで、ルーティングが自動的に追加されている。
     # devise_for :usersは、deviseを使用する際にURLとしてusersを含むことを示している。

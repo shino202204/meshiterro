@@ -6,4 +6,8 @@
   <p>ユーザーネーム：<%= @post_image.user.name %></p>
   <!--投稿日付の形式を変換-->
   <p>投稿日：<%= @post_image.created_at.strftime('%Y/%m/%d') %></p>
+  <% if @post_image.user == current_user %>
+    <!--ここの記述はなんだろう？？-->
+    <%= link_to "削除", post_image_path(@post_image), method: :delete %>
+  <% end %>
 </div>
