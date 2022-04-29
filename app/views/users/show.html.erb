@@ -1,2 +1,15 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<!--ユーザーの詳細-->
+<div>
+  <h3><%= @user.name %></h3>
+  <%= image_tag @user.get_profile_image(100, 100) %>
+</div>
+
+<!--ユーザーの投稿一覧-->
+<% @post_images.each do |post_image| %>
+  <div>
+    <p>投稿ユーザー画像:</p>
+    <p>ショップ名：</p>
+    <p>説明：</p>
+    <p>ユーザーネーム：</p>
+  </div>
+<% end %>
