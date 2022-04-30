@@ -9,6 +9,8 @@ class PostImage < ApplicationRecord
   # そのため、単数形の「user」になっている点に注意。
   belongs_to :user
 
+  has_many :post_comments, dependent: :destroy
+
   # 画像が投稿されていない場合のエラーを回避する
   # PostImageモデルの中に記述することで、カラムを呼び出すように
   # このget_imageメソッドを呼び出すことができるようになる。
