@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  # deviseのモデルを作成したことで、ルーティングが自動的に追加されている。
+  # devise_for :usersは、deviseを使用する際にURLとしてusersを含むことを示している。
+  devise_for :users
+
+  root to: "homes#top"
+
+  get 'homes/about' ,as: 'about'
+
   # get 'users/show'
   # get 'users/edit'
   # get 'post_images/new'
@@ -11,13 +19,6 @@ Rails.application.routes.draw do
   # この場合、onlyの後に配列で記述されている"new","index","show"のアクション以外は、
   # ルーティングが行われない。
   resources :post_images, only: [:new, :create, :index, :show, :destroy]
-  resources :users, only: [:show, :edit]
+  resources :users, only: [:show, :edit, :update]
 
-  # deviseのモデルを作成したことで、ルーティングが自動的に追加されている。
-  # devise_for :usersは、deviseを使用する際にURLとしてusersを含むことを示している。
-  devise_for :users
-
-  root to: "homes#top"
-
-  get 'homes/about' ,as: 'about'
 end
