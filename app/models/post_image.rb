@@ -25,4 +25,10 @@ class PostImage < ApplicationRecord
     end
       image
   end
+
+  # 引数で渡されたユーザidがFavoriteテーブル内に存在(exists?)するかどうかを調べる
+  # 存在していればtrue、存在していなければfalseを返す
+  def favorited_by?(user)
+    favorites.exists?(user_id: user.id)
+  end
 end

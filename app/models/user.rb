@@ -10,6 +10,7 @@ class User < ApplicationRecord
   # 関連するNのデータも削除される設定。
   has_many :post_images, dependent: :destroy
   has_many :post_comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   # profile_imageという名前でActiveStorageでプロフィール画像を保存できるように設定。
   has_one_attached :profile_image
