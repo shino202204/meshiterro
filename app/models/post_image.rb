@@ -10,6 +10,7 @@ class PostImage < ApplicationRecord
   belongs_to :user
 
   has_many :post_comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   # 画像が投稿されていない場合のエラーを回避する
   # PostImageモデルの中に記述することで、カラムを呼び出すように
