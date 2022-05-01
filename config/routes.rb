@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   # このような親子関係を「ネストする」と言う。このようなネストしたURLを作成することで
   # params[:post_image_id]でPostImageのidが取得できるようになる。
   resources :post_images, only: [:new, :create, :index, :show, :destroy] do
-    resources :post_comments, only: [:create]
+    resources :post_comments, only: [:create, :destroy]
   end
   resources :users, only: [:show, :edit, :update]
 
