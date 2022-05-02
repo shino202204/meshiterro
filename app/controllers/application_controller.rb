@@ -1,4 +1,18 @@
 class ApplicationController < ActionController::Base
+  # ログイン認証が済んでいない状態でトップページ以外の画面にアクセスしても、
+  # # ログイン画面へリダイレクトするようになる。
+  # before_actionメソッド：このコントローラが動作する前に実行される。
+  # 今回の場合、app/controllers/application_controller.rbファイルに記述したので、
+  # 全てのコントローラで、最初にbefore_actionメソッドが実行される。
+
+  # authenticate_userメソッド：devise側が用意しているメソッド。:authenticate_user!とすることで、
+  # 「ログイン認証されていなければ、ログイン画面へリダイレクトする」機能を実装できる。
+
+  # except：指定したアクションをbefore_actionの対象から外す。
+  # Meshiterroではトップページのみログイン状態に関わらず、アクセス可能とするために
+  # topアクションを指定している。
+  before_action :authenticate_user!, except: [:top]
+
   # deviseのストロングパラメータを編集する場合、ApplicationControllerに記述する。
   # deviseのコントローラは直接修正できないため、全てのコントローラに対する処理を行える
   # 権限を持つ、ApplicationControllerに記述する必要がある。
