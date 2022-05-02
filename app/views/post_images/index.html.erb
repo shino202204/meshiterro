@@ -1,18 +1,23 @@
-<% @post_images.each do |post_image| %>
-  <div>
+<!--< @post_images.each do |post_image| %>-->
+<!--  <div>-->
     <!--link_toで、post_image_path(post_image.id)のリンク先URLを指定している。-->
     <!--/post_image/:id でリンクが作成される。-->
     <!--また、link_toでは、doからendの間が、aタグで囲まれた状態になるので、-->
     <!--結果、image_tagはaタグに囲まれたimgタグになる。-->
-    <%= link_to post_image_path(post_image.id) do %>
-      <%= image_tag post_image.get_image %>
-    <% end %>
-    <p>投稿ユーザー画像：<%= image_tag post_image.user.get_profile_image(100,100) %></p>
-    <p>ショップ名：<%= post_image.shop_name %></p>
-    <p>説明：<%= post_image.caption %></p>
+<!--    <= link_to post_image_path(post_image.id) do %>-->
+<!--      <= image_tag post_image.get_image %>-->
+<!--    < end %>-->
+<!--    <p>投稿ユーザー画像：<= image_tag post_image.user.get_profile_image(100,100) %></p>-->
+<!--    <p>ショップ名：<= post_image.shop_name %></p>-->
+<!--    <p>説明：<= post_image.caption %></p>-->
     <!--post_image変数のuser_idに関連付けられているuserモデルのnameカラムを表示-->
     <!--nameカラム以外にも、ユーザーモデルにカラムとして定義されている情報であれば取得できる-->
-    <p>ユーザーネーム：<%= post_image.user.name %></p>
-    <p><%= link_to "#{post_image.post_comments.count}コメント", post_image_path(post_image.id) %></p>
-  </div>
-<% end %>
+<!--    <p>ユーザーネーム：<= post_image.user.name %></p>-->
+<!--    <p><= link_to "#{post_image.post_comments.count}コメント", post_image_path(post_image.id) %></p>-->
+<!--  </div>-->
+<!--< end %>-->
+
+<!--render：部分テンプレートファイルを呼び出す-->
+<!--'list'で部分テンプレートのパスを記述する。その際アンダースコアは省略する。-->
+<!--<= render[部分テンプレートファイルの指定], [ローカル変数]:[渡す値] %>-->
+<%= render 'list', post_images: @post_images %>
