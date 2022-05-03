@@ -19,7 +19,11 @@ class PostImagesController < ApplicationController
 
   def index
     # post_imagesデーブル内に存在する全てのレコードのインスタンスを代入
-    @post_images = PostImage.all
+    # @post_images = PostImage.all
+
+    # １ページ分の決められた数のデータだけを、新しい順に取得するように変更している。
+    # pageメソッド：kaminariをインストールしたことで使用可能になったメソッド。
+    @post_images = PostImage.page(params[:page])
   end
 
   def show
