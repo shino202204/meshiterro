@@ -10,8 +10,11 @@ class PostImagesController < ApplicationController
     # current_userは、コードに記述するだけで、ログイン中のユーザーの情報を取得できる。
     # つまり以下では、投稿データのuser_idを、現在ログインしているユーザーのIDに指定している。
     @post_image.user_id = current_user.id
-    @post_image.save
-    redirect_to post_images_path
+    if @post_image.save
+      redirect_to post_images_path
+    else
+      render:new
+    end
   end
 
   def index

@@ -12,6 +12,10 @@ class PostImage < ApplicationRecord
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
+  # 必須入力の設定
+    validates :shop_name, presence: true
+    validates :image, presence: true
+
   # 画像が投稿されていない場合のエラーを回避する
   # PostImageモデルの中に記述することで、カラムを呼び出すように
   # このget_imageメソッドを呼び出すことができるようになる。
