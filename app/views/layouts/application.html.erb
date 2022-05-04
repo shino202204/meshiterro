@@ -2,11 +2,17 @@
 <html>
   <head>
     <title>Meshiterro</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!--Bootstrapを使用する準備のため、stylesheet_link_tagからstylesheet_pack_tagに記述を変更-->
+    <!--「stylesheet_link_tag」：app/assets配下のCSSファイルを参照する-->
+    <!--「stylesheet_pack_tag」：app/javascript配下のCSSファイルを参照する-->
+
+    <!--<= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>-->
+    <= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
