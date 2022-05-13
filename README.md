@@ -1,24 +1,7 @@
-# README
+# 見出し１
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 見出し２
 
-Things you may want to cover:
+### 見出し３
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+練習用
